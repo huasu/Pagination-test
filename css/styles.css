@@ -1,0 +1,36 @@
+body {
+}
+
+.hidden {
+  display:none;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.form-group-inline {
+  display: inline-block;
+}
+
+.footer{
+  text-align: center;
+  color: hsl(240,80%,10%);
+  position: fixed;
+  bottom: 6px;
+  width: 100%;
+  font-size: 0.7em;
+  opacity: 0.5;
+}
+
+/*clearfix*/
+.group:before, .group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear:both;
+}
+.group {
+  zoom: 1; /* IE 6&7 */
+}

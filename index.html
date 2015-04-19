@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+  <title>Pagination Test</title>
+  <meta name="description" content="HTML content">
+  <meta name="huasu" content="author">
+
+  <!-- Boot Strap: http://getbootstrap.com/getting-started/#template -->
+  <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap-theme.min.css">
+
+  <!-- <link ref="stylesheet" href="css/styles.css?v=1.0"> -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="bower_components/respond/dest/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div id="ng" ng-app="thisApp">
+    <div ng-controller="appCtrl">
+      <h1>Pagination Testing in Angular</h1>
+      <section>
+        <input role="textbox" ng-model="pageSize" ng-change="updateDisplay()"></input>
+        Number per page: {{pageSize}}
+      </section>
+      
+      <section>
+        <!-- http://dotansimha.github.io/angularjs-dropdown-multiselect/#/ -->
+        <div ng-dropdown-multiselect="" search-filter="projectFilter" options="projectsHash" selected-model="projectsSelected" extra-settings="projectDropDownSettings" translation-texts="projectDropDownTextSettings"></div>
+      </section>
+
+      <section>
+        <input role="textbox" ng-model="numItems" ng-change="makeNumbers()"></input>
+        Number of items: {{numItems}}
+      </section>
+
+      <section>
+        <input role="textbox" ng-model="listFilter.num"></input>
+        Filter: {{listFilter}}
+        Displayed: {{displayList.length}}
+      </section>
+
+      <section>
+        <pagination total-items="displayList.length" items-per-page="pageSize" ng-model="currentPage" boundary-links="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+      </section>
+
+      <section>
+          <ul class="list-group" id="list">
+          <li class="col-md-1 list-group-item form-group-inline {
+" ng-repeat="number in displayList= (dataset | filter:listFilter) | pageDisplayFilter:this" >{{number.category}} {{number.num}}</li>
+          </ul>
+
+      </section>
+      <app-footer></app-footer>
+    </div><!-- end appCtrl -->
+  </div> <!-- end ng-app -->
+
+  <!-- jQuery -->
+  <script src="assets/jquery/dist/jquery.min.js"></script>
+
+  <!-- Bootstrap js -->
+  <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/angular/angular.min.js"></script>
+  <script src="assets/angular-resource/angular-resource.min.js"></script>
+  <script src="assets/angular-route/angular-route.min.js"></script>
+  <script src="assets/ui-bootstrap/src/pagination/pagination.js"></script>
+
+  <script src="assets/lodash/dist/lodash.min.js"></script>
+  <script src="assets/angularjs-dropdown-multiselect/dist/angularjs-dropdown-multiselect.min.js"></script>
+
+  <script src="js/app-ng.js"></script>
+  <script src="js/directives/app-ng-directives.js"></script>
+  <script src="js/services/app-ng-services.js"></script>
+  
+  <!-- // <script src="js/app-jquery.js"></script> -->
+
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
+
+<!--
+-->
